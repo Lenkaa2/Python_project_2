@@ -55,4 +55,25 @@ while True:
         bulls = 0
         cows = 0
 
-    
+        for index, number in enumerate(enter_number):
+            if enter_number[index] == str((secret_number)[index]):
+                bulls += 1
+            elif number in str(secret_number):
+                cows += 1
+        
+        attempt += 1
+
+        if bulls == 4:
+            end_time = datetime.datetime.now()
+            game_time = end_time - start_time
+            print("Correct, you've guessed the right number", 
+                    f"in {attempt} guesses.",
+                    f"Your game time was {game_time}",
+                    separator,
+                    sep="\n")
+            break
+        
+        bulls_word = "bull" if bulls == 1 else "bulls"
+        cows_word = "cow" if cows == 1 else "cows"
+        print(f"{bulls} {bulls_word}, {cows} {cows_word}")
+        print(separator)
