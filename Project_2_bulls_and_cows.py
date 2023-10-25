@@ -38,3 +38,19 @@ def check_duplicate(user_number):
 attempt = 0 # Počítání pokusů uživatele
 
 start_time = datetime.datetime.now()
+
+while True:
+    enter_number = input("Enter a number: ")
+    print(separator)
+    if len(enter_number) != 4:
+        print("You did not enter a 4 digit number. Try again.")
+    elif enter_number[0] == '0':
+        print("Number must not start with zero. Try again.")
+    elif not enter_number.isnumeric():
+        print("Number contains not numeric character. Try again.")
+    elif check_duplicate(enter_number):
+        print("You entered duplicated values. Try again.")
+    else:
+        print(">>>", enter_number)
+        bulls = 0
+        cows = 0
